@@ -77,27 +77,28 @@ const Blog = () => {
     : blogPosts.filter(post => post.category === selectedCategory);
 
   return (
-    <div>
+    <div className="bg-white">
       {/* Hero */}
-      <section className="bg-gradient-to-br from-[#191970] to-[#000080] text-white py-20 px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Blog</h1>
-          <p className="text-xl text-gray-200">Insights, updates, and technology trends</p>
+      <section className="relative py-32 px-4 bg-white overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-[#191970]/5 to-transparent"></div>
+        <div className="max-w-4xl mx-auto text-center relative z-10">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-[#191970]">Blog</h1>
+          <p className="text-xl md:text-2xl text-gray-600">Insights, updates, and technology trends</p>
         </div>
       </section>
 
       {/* Category Filter */}
-      <section className="py-8 px-4 bg-white border-b">
+      <section className="py-8 px-4 bg-gradient-to-b from-gray-50 to-white border-b border-gray-100">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-wrap gap-2 justify-center">
+          <div className="flex flex-wrap gap-3 justify-center">
             {categories.map((category) => (
               <button
                 key={category}
                 onClick={() => setSelectedCategory(category)}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
+                className={`px-6 py-3 rounded-full text-sm font-bold transition-all shadow-md ${
                   selectedCategory === category
-                    ? 'bg-[#191970] text-[#FFD700]'
-                    : 'bg-[#FFFAFA] text-gray-700 hover:bg-[#191970] hover:text-[#FFD700]'
+                    ? 'bg-gradient-to-r from-[#191970] to-[#000080] text-[#FFD700] shadow-xl scale-105'
+                    : 'bg-white text-gray-700 hover:bg-[#191970] hover:text-[#FFD700] hover:shadow-lg'
                 }`}
               >
                 {category}
@@ -108,7 +109,7 @@ const Blog = () => {
       </section>
 
       {/* Blog Grid */}
-      <section className="py-20 px-4 bg-[#FFFAFA]">
+      <section className="py-20 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredPosts.map((post, index) => (
@@ -168,19 +169,19 @@ const Blog = () => {
       </section>
 
       {/* Newsletter Subscription */}
-      <section className="py-16 px-4 bg-white">
-        <div className="max-w-2xl mx-auto text-center bg-[#FFFAFA] p-8 rounded-lg shadow-md">
-          <h2 className="text-3xl font-bold text-[#191970] mb-4">Stay Updated</h2>
-          <p className="text-gray-600 mb-6">
+      <section className="py-24 px-4 bg-gradient-to-b from-gray-50 to-white">
+        <div className="max-w-2xl mx-auto text-center bg-white p-12 rounded-3xl shadow-2xl border border-gray-100">
+          <h2 className="text-4xl font-bold text-[#191970] mb-6">Stay Updated</h2>
+          <p className="text-gray-600 text-lg mb-8 leading-relaxed">
             Subscribe to our newsletter to receive the latest insights, technology trends, and company updates.
           </p>
-          <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+          <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
             <input
               type="email"
               placeholder="Enter your email"
-              className="flex-1 px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#191970] focus:border-transparent outline-none"
+              className="flex-1 px-6 py-4 border-2 border-gray-200 rounded-full focus:ring-2 focus:ring-[#FFD700] focus:border-[#191970] outline-none transition-all"
             />
-            <button className="bg-[#191970] text-[#FFD700] px-6 py-3 rounded-md font-semibold hover:bg-[#000080] transition-colors whitespace-nowrap">
+            <button className="bg-gradient-to-r from-[#191970] to-[#000080] text-[#FFD700] px-8 py-4 rounded-full font-bold hover:shadow-2xl transition-all transform hover:scale-105 whitespace-nowrap">
               Subscribe
             </button>
           </div>

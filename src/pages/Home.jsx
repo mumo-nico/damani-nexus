@@ -14,19 +14,22 @@ const Home = () => {
       title: "Tech for Every Terrain",
       subtitle: "For those who believe in beautiful software",
       description: "Transforming ideas into powerful digital solutions that drive business growth",
-      cta: "Start Your Journey"
+      cta: "Start Your Journey",
+      image: "/images/web-services.jpg"
     },
     {
       title: "Build Complex Software",
       subtitle: "For those who need to build complex software and projects",
       description: "Enterprise-grade systems designed for scalability and performance",
-      cta: "Explore Solutions"
+      cta: "Explore Solutions",
+      image: "/images/data-analytics.jpg"
     },
     {
       title: "Reveal Product Beauty",
       subtitle: "For those who need technology to reveal beauty of products",
       description: "Crafting exceptional digital experiences that captivate and convert",
-      cta: "See Our Work"
+      cta: "See Our Work",
+      image: "/images/digital-marketing.jpg"
     }
   ];
 
@@ -161,8 +164,6 @@ const Home = () => {
     <div className="bg-white">
       {/* Hero Section with Carousel */}
       <section className="relative h-screen overflow-hidden bg-white">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#191970]/5 to-transparent"></div>
-
         {heroSlides.map((slide, index) => (
           <motion.div
             key={index}
@@ -172,45 +173,58 @@ const Home = () => {
               scale: currentSlide === index ? 1 : 1.1
             }}
             transition={{ duration: 1 }}
-            className="absolute inset-0 flex items-center justify-center"
+            className="absolute inset-0"
           >
-            <div className="max-w-7xl mx-auto px-4 text-center">
-              <motion.div
-                initial={{ y: 50, opacity: 0 }}
-                animate={{
-                  y: currentSlide === index ? 0 : 50,
-                  opacity: currentSlide === index ? 1 : 0
-                }}
-                transition={{ delay: 0.2, duration: 0.8 }}
-              >
+            {/* Background Image */}
+            <div className="absolute inset-0">
+              <img
+                src={slide.image}
+                alt={slide.title}
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-[#191970]/95 via-[#191970]/85 to-[#191970]/70"></div>
+            </div>
+
+            {/* Content */}
+            <div className="relative h-full flex items-center justify-center">
+              <div className="max-w-7xl mx-auto px-4 text-center">
                 <motion.div
-                  className="inline-block mb-6"
-                  animate={{ rotate: [0, 10, -10, 0] }}
-                  transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
+                  initial={{ y: 50, opacity: 0 }}
+                  animate={{
+                    y: currentSlide === index ? 0 : 50,
+                    opacity: currentSlide === index ? 1 : 0
+                  }}
+                  transition={{ delay: 0.2, duration: 0.8 }}
                 >
-                  <Sparkles className="text-[#FFD700] w-12 h-12 mx-auto" />
+                  <motion.div
+                    className="inline-block mb-6"
+                    animate={{ rotate: [0, 10, -10, 0] }}
+                    transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
+                  >
+                    <Sparkles className="text-[#FFD700] w-16 h-16 mx-auto drop-shadow-2xl" />
+                  </motion.div>
+
+                  <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight text-white drop-shadow-2xl">
+                    {slide.title}
+                  </h1>
+
+                  <p className="text-xl md:text-2xl lg:text-3xl mb-4 text-[#FFD700] font-light drop-shadow-lg">
+                    {slide.subtitle}
+                  </p>
+
+                  <p className="text-lg md:text-xl mb-12 max-w-3xl mx-auto text-gray-100 drop-shadow-lg">
+                    {slide.description}
+                  </p>
+
+                  <Link
+                    to="/contact"
+                    className="inline-flex items-center gap-2 bg-[#FFD700] text-[#191970] px-10 py-5 rounded-full font-bold text-lg hover:bg-white transition-all transform hover:scale-105 shadow-2xl"
+                  >
+                    {slide.cta}
+                    <ArrowRight className="w-5 h-5" />
+                  </Link>
                 </motion.div>
-
-                <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight text-[#191970]">
-                  {slide.title}
-                </h1>
-
-                <p className="text-xl md:text-2xl lg:text-3xl mb-4 text-gray-600 font-light">
-                  {slide.subtitle}
-                </p>
-
-                <p className="text-lg md:text-xl mb-12 max-w-3xl mx-auto text-gray-500">
-                  {slide.description}
-                </p>
-
-                <Link
-                  to="/contact"
-                  className="inline-flex items-center gap-2 bg-[#191970] text-[#FFD700] px-10 py-5 rounded-full font-semibold text-lg hover:bg-[#000080] transition-all transform hover:scale-105 shadow-2xl"
-                >
-                  {slide.cta}
-                  <ArrowRight className="w-5 h-5" />
-                </Link>
-              </motion.div>
+              </div>
             </div>
           </motion.div>
         ))}

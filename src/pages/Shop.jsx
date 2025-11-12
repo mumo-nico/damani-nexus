@@ -27,31 +27,32 @@ const Shop = () => {
   ];
 
   return (
-    <div>
+    <div className="bg-white">
       {/* Hero */}
-      <section className="bg-gradient-to-br from-[#191970] to-[#000080] text-white py-20 px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Shop</h1>
-          <p className="text-xl text-gray-200">Coming Soon - Browse our products and solutions</p>
+      <section className="relative py-32 px-4 bg-white overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-[#191970]/5 to-transparent"></div>
+        <div className="max-w-4xl mx-auto text-center relative z-10">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-[#191970]">Shop</h1>
+          <p className="text-xl md:text-2xl text-gray-600">Coming Soon - Browse our products and solutions</p>
         </div>
       </section>
 
       {/* Coming Soon Content */}
-      <section className="py-20 px-4 bg-[#FFFAFA]">
+      <section className="py-20 px-4 bg-white">
         <div className="max-w-4xl mx-auto text-center mb-12">
-          <div className="bg-white p-8 rounded-lg shadow-md mb-12">
-            <div className="text-6xl mb-4">🚀</div>
-            <h2 className="text-3xl font-bold text-[#191970] mb-4">Our Online Shop is Coming Soon!</h2>
-            <p className="text-gray-600 text-lg mb-6">
-              We're working hard to bring you an amazing shopping experience for all your technology needs. 
+          <div className="bg-gradient-to-br from-gray-50 to-white p-12 rounded-3xl shadow-2xl mb-12 border border-gray-100">
+            <div className="text-7xl mb-6">🚀</div>
+            <h2 className="text-4xl md:text-5xl font-bold text-[#191970] mb-6">Our Online Shop is Coming Soon!</h2>
+            <p className="text-gray-600 text-lg mb-6 leading-relaxed">
+              We're working hard to bring you an amazing shopping experience for all your technology needs.
               Our shop will feature hardware products, software solutions, and service packages.
             </p>
-            <p className="text-gray-600 mb-6">
+            <p className="text-gray-600 text-lg mb-8 leading-relaxed">
               In the meantime, feel free to contact us directly for any product inquiries or to place an order.
             </p>
             <Link
               to="/contact"
-              className="inline-block bg-[#191970] text-[#FFD700] px-8 py-3 rounded-lg font-semibold hover:bg-[#000080] transition-colors"
+              className="inline-flex items-center gap-2 bg-gradient-to-r from-[#191970] to-[#000080] text-[#FFD700] px-10 py-5 rounded-full font-bold text-lg hover:shadow-2xl transition-all transform hover:scale-105"
             >
               Contact Us for Orders
             </Link>
@@ -103,19 +104,19 @@ const Shop = () => {
       </section>
 
       {/* Newsletter Signup */}
-      <section className="py-16 px-4 bg-[#FFFAFA]">
-        <div className="max-w-2xl mx-auto text-center bg-white p-8 rounded-lg shadow-md">
-          <h3 className="text-2xl font-bold text-[#191970] mb-4">Get Notified When We Launch</h3>
-          <p className="text-gray-600 mb-6">
+      <section className="py-24 px-4 bg-gradient-to-b from-gray-50 to-white">
+        <div className="max-w-2xl mx-auto text-center bg-white p-12 rounded-3xl shadow-2xl border border-gray-100">
+          <h3 className="text-4xl font-bold text-[#191970] mb-6">Get Notified When We Launch</h3>
+          <p className="text-gray-600 text-lg mb-8 leading-relaxed">
             Be the first to know when our online shop goes live. Sign up for updates and exclusive launch offers.
           </p>
-          <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+          <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
             <input
               type="email"
               placeholder="Enter your email"
-              className="flex-1 px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#191970] focus:border-transparent outline-none"
+              className="flex-1 px-6 py-4 border-2 border-gray-200 rounded-full focus:ring-2 focus:ring-[#FFD700] focus:border-[#191970] outline-none transition-all"
             />
-            <button className="bg-[#191970] text-[#FFD700] px-6 py-3 rounded-md font-semibold hover:bg-[#000080] transition-colors whitespace-nowrap">
+            <button className="bg-gradient-to-r from-[#191970] to-[#000080] text-[#FFD700] px-8 py-4 rounded-full font-bold hover:shadow-2xl transition-all transform hover:scale-105 whitespace-nowrap">
               Notify Me
             </button>
           </div>
